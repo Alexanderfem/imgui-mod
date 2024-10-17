@@ -4,7 +4,10 @@
 	by Singularity
         https://v3rmillion.net/member.php?action=profile&uid=947830
         Singularity#5490
-  Modified for rivals
+    
+    Modified and improved
+    by Alexanderfem
+        https://v3rm.net/members/ban.759/
 --]]
 
 repeat wait() until cloneref(game:GetService("Players")).LocalPlayer
@@ -12,107 +15,114 @@ if cloneref(game:GetService("CoreGui")):FindFirstChild("imgui2") then
     cloneref(game:GetService("CoreGui")):FindFirstChild("imgui2"):Destroy()
 end
 
+local string_lower = clonefunction(string.lower)
+local raw_set = clonefunction(rawset)
+local raw_get = clonefunction(rawget)
+local assert_c = clonefunction(assert)
+local Instance_new = clonefunction(Instance.new)
+local type_of = clonefunction(typeof)
+
 do -- Load items
-    local imgui2 = Instance.new("ScreenGui")
-    local Presets = Instance.new("Frame")
-    local Label = Instance.new("TextLabel")
-    local TabButton = Instance.new("TextButton")
-    local Folder = Instance.new("Frame")
-    local Folder_2 = Instance.new("ImageLabel")
-    local Expand = Instance.new("ImageButton")
-    local Title = Instance.new("TextLabel")
-    local Items = Instance.new("Frame")
-    local UIListLayout = Instance.new("UIListLayout")
-    local Tab = Instance.new("Frame")
-    local Items_2 = Instance.new("ScrollingFrame")
-    local UIListLayout_2 = Instance.new("UIListLayout")
-    local Padding = Instance.new("Frame")
-    local Main = Instance.new("ImageLabel")
-    local Frame = Instance.new("Frame")
-    local Frame_2 = Instance.new("Frame")
-    local Content = Instance.new("ImageLabel")
-    local Frame_3 = Instance.new("Frame")
-    local Message = Instance.new("ImageLabel")
-    local Expand_2 = Instance.new("ImageButton")
-    local Title_2 = Instance.new("TextLabel")
-    local Shadow = Instance.new("ImageLabel")
-    local Tabs = Instance.new("Frame")
-    local Items_3 = Instance.new("Frame")
-    local UIListLayout_3 = Instance.new("UIListLayout")
-    local Frame_4 = Instance.new("Frame")
-    local Layer = Instance.new("ImageLabel")
-    local Dock = Instance.new("Frame")
-    local UIListLayout_4 = Instance.new("UIListLayout")
-    local Switch = Instance.new("Frame")
-    local Button = Instance.new("TextButton")
-    local ImageLabel = Instance.new("ImageLabel")
-    local Layer_2 = Instance.new("ImageLabel")
-    local Check = Instance.new("ImageLabel")
-    local Text = Instance.new("TextLabel")
-    local Slider = Instance.new("Frame")
-    local Outer = Instance.new("ImageLabel")
-    local Inner = Instance.new("ImageLabel")
-    local Slider_2 = Instance.new("Frame")
-    local Value = Instance.new("TextLabel")
-    local Text_2 = Instance.new("TextLabel")
-    local Button_2 = Instance.new("TextButton")
-    local ImageLabel_2 = Instance.new("ImageLabel")
-    local Layer_3 = Instance.new("ImageLabel")
-    local Card = Instance.new("ImageLabel")
-    local UIGradient = Instance.new("UIGradient")
-    local ImageLabel_3 = Instance.new("ImageLabel")
-    local Roundify = Instance.new("ImageLabel")
-    local heading = Instance.new("TextLabel")
-    local Frame_5 = Instance.new("ImageLabel")
-    local SubHeading = Instance.new("TextLabel")
-    local ColorPicker = Instance.new("Frame")
-    local Button_3 = Instance.new("TextButton")
-    local ImageLabel_4 = Instance.new("ImageLabel")
-    local ImageLabel_5 = Instance.new("ImageLabel")
-    local Layer_4 = Instance.new("ImageLabel")
-    local Text_3 = Instance.new("TextLabel")
-    local DropdownOption = Instance.new("TextButton")
-    local ImageLabel_6 = Instance.new("ImageLabel")
-    local DropdownWindow = Instance.new("ImageLabel")
-    local Frame_6 = Instance.new("Frame")
-    local Frame_7 = Instance.new("Frame")
-    local Title_3 = Instance.new("TextLabel")
-    local Shadow_2 = Instance.new("ImageLabel")
-    local Layer_5 = Instance.new("ImageLabel")
-    local Content_2 = Instance.new("ImageLabel")
-    local Items_4 = Instance.new("ScrollingFrame")
-    local UIListLayout_5 = Instance.new("UIListLayout")
-    local Search = Instance.new("Frame")
-    local Outer_2 = Instance.new("ImageLabel")
-    local Inner_2 = Instance.new("ImageLabel")
-    local ImageLabel_7 = Instance.new("ImageLabel")
-    local TextBox = Instance.new("TextLabel")
-    local Selected = Instance.new("TextLabel")
-    local Expand_3 = Instance.new("ImageButton")
-    local Cache = Instance.new("Frame")
-    local ColorPickerWindow = Instance.new("ImageLabel")
-    local Frame_8 = Instance.new("Frame")
-    local Frame_9 = Instance.new("Frame")
-    local Title_4 = Instance.new("TextLabel")
-    local Shadow_3 = Instance.new("ImageLabel")
-    local Layer_6 = Instance.new("ImageLabel")
-    local Expand_4 = Instance.new("ImageButton")
-    local Content_3 = Instance.new("ImageLabel")
-    local Palette = Instance.new("ImageLabel")
-    local Indicator = Instance.new("ImageLabel")
-    local Saturation = Instance.new("ImageLabel")
-    local Indicator_2 = Instance.new("Frame")
-    local FinalColor = Instance.new("ImageLabel")
-    local SaturationColor = Instance.new("ImageLabel")
-    local PaletteColor = Instance.new("ImageLabel")
-    local TextLabel = Instance.new("TextLabel")
-    local Dropdown = Instance.new("Frame")
-    local Outer_3 = Instance.new("ImageLabel")
-    local Inner_3 = Instance.new("ImageButton")
-    local ImageLabel_8 = Instance.new("ImageLabel")
-    local Value_2 = Instance.new("TextLabel")
-    local Text_4 = Instance.new("TextLabel")
-    local Cache_2 = Instance.new("Frame")
+    local imgui2 = Instance_new("ScreenGui")
+    local Presets = Instance_new("Frame")
+    local Label = Instance_new("TextLabel")
+    local TabButton = Instance_new("TextButton")
+    local Folder = Instance_new("Frame")
+    local Folder_2 = Instance_new("ImageLabel")
+    local Expand = Instance_new("ImageButton")
+    local Title = Instance_new("TextLabel")
+    local Items = Instance_new("Frame")
+    local UIListLayout = Instance_new("UIListLayout")
+    local Tab = Instance_new("Frame")
+    local Items_2 = Instance_new("ScrollingFrame")
+    local UIListLayout_2 = Instance_new("UIListLayout")
+    local Padding = Instance_new("Frame")
+    local Main = Instance_new("ImageLabel")
+    local Frame = Instance_new("Frame")
+    local Frame_2 = Instance_new("Frame")
+    local Content = Instance_new("ImageLabel")
+    local Frame_3 = Instance_new("Frame")
+    local Message = Instance_new("ImageLabel")
+    local Expand_2 = Instance_new("ImageButton")
+    local Title_2 = Instance_new("TextLabel")
+    local Shadow = Instance_new("ImageLabel")
+    local Tabs = Instance_new("Frame")
+    local Items_3 = Instance_new("Frame")
+    local UIListLayout_3 = Instance_new("UIListLayout")
+    local Frame_4 = Instance_new("Frame")
+    local Layer = Instance_new("ImageLabel")
+    local Dock = Instance_new("Frame")
+    local UIListLayout_4 = Instance_new("UIListLayout")
+    local Switch = Instance_new("Frame")
+    local Button = Instance_new("TextButton")
+    local ImageLabel = Instance_new("ImageLabel")
+    local Layer_2 = Instance_new("ImageLabel")
+    local Check = Instance_new("ImageLabel")
+    local Text = Instance_new("TextLabel")
+    local Slider = Instance_new("Frame")
+    local Outer = Instance_new("ImageLabel")
+    local Inner = Instance_new("ImageLabel")
+    local Slider_2 = Instance_new("Frame")
+    local Value = Instance_new("TextLabel")
+    local Text_2 = Instance_new("TextLabel")
+    local Button_2 = Instance_new("TextButton")
+    local ImageLabel_2 = Instance_new("ImageLabel")
+    local Layer_3 = Instance_new("ImageLabel")
+    local Card = Instance_new("ImageLabel")
+    local UIGradient = Instance_new("UIGradient")
+    local ImageLabel_3 = Instance_new("ImageLabel")
+    local Roundify = Instance_new("ImageLabel")
+    local heading = Instance_new("TextLabel")
+    local Frame_5 = Instance_new("ImageLabel")
+    local SubHeading = Instance_new("TextLabel")
+    local ColorPicker = Instance_new("Frame")
+    local Button_3 = Instance_new("TextButton")
+    local ImageLabel_4 = Instance_new("ImageLabel")
+    local ImageLabel_5 = Instance_new("ImageLabel")
+    local Layer_4 = Instance_new("ImageLabel")
+    local Text_3 = Instance_new("TextLabel")
+    local DropdownOption = Instance_new("TextButton")
+    local ImageLabel_6 = Instance_new("ImageLabel")
+    local DropdownWindow = Instance_new("ImageLabel")
+    local Frame_6 = Instance_new("Frame")
+    local Frame_7 = Instance_new("Frame")
+    local Title_3 = Instance_new("TextLabel")
+    local Shadow_2 = Instance_new("ImageLabel")
+    local Layer_5 = Instance_new("ImageLabel")
+    local Content_2 = Instance_new("ImageLabel")
+    local Items_4 = Instance_new("ScrollingFrame")
+    local UIListLayout_5 = Instance_new("UIListLayout")
+    local Search = Instance_new("Frame")
+    local Outer_2 = Instance_new("ImageLabel")
+    local Inner_2 = Instance_new("ImageLabel")
+    local ImageLabel_7 = Instance_new("ImageLabel")
+    local TextBox = Instance_new("TextLabel")
+    local Selected = Instance_new("TextLabel")
+    local Expand_3 = Instance_new("ImageButton")
+    local Cache = Instance_new("Frame")
+    local ColorPickerWindow = Instance_new("ImageLabel")
+    local Frame_8 = Instance_new("Frame")
+    local Frame_9 = Instance_new("Frame")
+    local Title_4 = Instance_new("TextLabel")
+    local Shadow_3 = Instance_new("ImageLabel")
+    local Layer_6 = Instance_new("ImageLabel")
+    local Expand_4 = Instance_new("ImageButton")
+    local Content_3 = Instance_new("ImageLabel")
+    local Palette = Instance_new("ImageLabel")
+    local Indicator = Instance_new("ImageLabel")
+    local Saturation = Instance_new("ImageLabel")
+    local Indicator_2 = Instance_new("Frame")
+    local FinalColor = Instance_new("ImageLabel")
+    local SaturationColor = Instance_new("ImageLabel")
+    local PaletteColor = Instance_new("ImageLabel")
+    local TextLabel = Instance_new("TextLabel")
+    local Dropdown = Instance_new("Frame")
+    local Outer_3 = Instance_new("ImageLabel")
+    local Inner_3 = Instance_new("ImageButton")
+    local ImageLabel_8 = Instance_new("ImageLabel")
+    local Value_2 = Instance_new("TextLabel")
+    local Text_4 = Instance_new("TextLabel")
+    local Cache_2 = Instance_new("Frame")
 
     imgui2.Name = "imgui2"
     imgui2.Parent = cloneref(game:GetService("CoreGui"))
@@ -1136,7 +1146,7 @@ local event = { } do
                 event:Fire(...)
             end,
         })
-        local BindableEvent = Instance.new("BindableEvent")
+        local BindableEvent = Instance_new("BindableEvent")
 
         function event:Connect(callback)
             local c = { }
@@ -1200,11 +1210,11 @@ local browsingWindow = { }
 local function updateWindowHistory()
     for i, v in next, windowHistory do
         local offset = 9e3 - v * 100
-        i.ZIndex = rawget(windowCache[i], i) + offset
+        i.ZIndex = raw_get(windowCache[i], i) + offset
         for i2, v2 in next, i:GetDescendants() do
             if pcall(function() return v2.ZIndex end) then
-                if rawget(windowCache[i], v2) then
-                    v2.ZIndex = rawget(windowCache[i], v2) + offset
+                if raw_get(windowCache[i], v2) then
+                    v2.ZIndex = raw_get(windowCache[i], v2) + offset
                 end
             end
         end
@@ -1212,16 +1222,16 @@ local function updateWindowHistory()
 end
 
 local function cacheWindowHistory(window)
-    rawset(windowCache, window, { })
-    rawset(windowCache[window], window, window.ZIndex)
+    raw_set(windowCache, window, { })
+    raw_set(windowCache[window], window, window.ZIndex)
     for i, v in next, window:GetDescendants() do
         if pcall(function() return v.ZIndex end) then
-            rawset(windowCache[window], v, v.ZIndex)
+            raw_set(windowCache[window], v, v.ZIndex)
         end
     end
     window.DescendantAdded:Connect(function(descendant)
         if pcall(function() return descendant.ZIndex end) then
-            rawset(windowCache[window], descendant, descendant.ZIndex)
+            raw_set(windowCache[window], descendant, descendant.ZIndex)
             updateWindowHistory()
         end
     end)
@@ -1240,11 +1250,11 @@ local function setTopMost(window)
 end
 
 local function isTopMost(window)
-    return rawget(windowHistory, window) == 1
+    return raw_get(windowHistory, window) == 1
 end
 
 local function isBrowsing(window)
-    return not not (rawget(browsingWindow, window) or rawget(mouseCache, window))
+    return not not (raw_get(browsingWindow, window) or raw_get(mouseCache, window))
 end
 
 local function findBrowsingTopMost()
@@ -1281,7 +1291,7 @@ local dragger = {} do
 
         mouse.InputBegan:Connect(function()
             if findBrowsingTopMost() == frame then
-                if (not colorpicking) and (not sliding) and rawget(draggerCache, frame) then
+                if (not colorpicking) and (not sliding) and raw_get(draggerCache, frame) then
                     local objectPosition = Vector2.new(getMouse().X - frame.AbsolutePosition.X, getMouse().Y - frame.AbsolutePosition.Y)
                     while mouse.held do
                         pcall(function()
@@ -1366,12 +1376,12 @@ local settings = {
         end
         return { handle = function(options)
             local self = { }
-            options = typeof(options) == "table" and options or { }
+            options = type_of(options) == "table" and options or { }
             for i, v in next, default do
                 self[l(i)] = v
             end
             for i, v in next, options do
-                if typeof(default[l(i)]) == typeof(options[l(i)]) then
+                if type_of(default[l(i)]) == type_of(options[l(i)]) then
                     self[l(i)] = v
                 end
             end
@@ -1704,7 +1714,7 @@ local library library = {
                     local old
 
                     function self.set(n)
-                        assert(typeof(n) == "number", "invalid type")
+                        assert_c(type_of(n) == "number", "invalid type")
                         local min, max
                         if sliderOptions.max > sliderOptions.min then
                             max = sliderOptions.max
@@ -2019,7 +2029,7 @@ local library library = {
                         dropdownWindow.Visible = self.visible
                         if self.visible then
                             dropdownWindow.Position = UDim2.new(0, dropdownButton.AbsolutePosition.X + dropdownButton.AbsoluteSize.X, 0, dropdownButton.AbsolutePosition.Y)
-                            self.open()
+                            --self.open()
                             setTopMost(dropdownWindow)
                         end
                     end)
@@ -2080,8 +2090,8 @@ local library library = {
                         local dropdownObject = { }
                         dropdownObject.selected = false
                         dropdownObject.name = name
-                        assert(rawget(dropdownObjects, name) == nil, string.format("object already exists in dropdown '%s'", dropdownOptions.text))
-                        rawset(dropdownObjects, name, dropdownObject)
+                        assert_c(raw_get(dropdownObjects, name) == nil, string.format("object already exists in dropdown '%s'", dropdownOptions.text))
+                        raw_set(dropdownObjects, name, dropdownObject)
 
                         local dropdownOption = new("DropdownOption")
                         dropdownObject.object = dropdownOption
@@ -2113,12 +2123,12 @@ local library library = {
                         end
 
                         function dropdownObject.Destroy()
-                            if rawget(dropdownObject, name) then
+                            if raw_get(dropdownObject, name) then
                                 inner:FindFirstChild("Value").Text = "[...]"
                                 dropdownWindow:FindFirstChild("Content"):FindFirstChild("Selected").Text = "[...]"
                             end
                             self.selected = nil
-                            rawset(dropdownObject, name, nil)
+                            raw_set(dropdownObject, name, nil)
                         end
 
                         return dropdownObject
@@ -2127,7 +2137,7 @@ local library library = {
                     function self.search(key)
                         for name, dropdownObject in next, dropdownObjects do
                             dropdownObject.object.Parent = dropdownWindow:FindFirstChild("Cache")
-                            if dropdownObject.name:match(key) then
+                            if string_lower(dropdownObject.name):match(string_lower(key)) then
                                 dropdownObject.object.Parent = dropdownItems
                             end
                         end
@@ -2212,9 +2222,9 @@ local library library = {
                                     updateTextBox()
                                 end
                                 if betweenOpenInterval(keycode.Value, 48, 57) then -- 0-9
-                                    local name = rawget({ Zero = 0, One = 1, Two = 2, Three = 3, Four = 4, Five = 5, Six = 6, Seven = 7, Eight = 8, Nine = 9 }, keycode.Name)
+                                    local name = raw_get({ Zero = 0, One = 1, Two = 2, Three = 3, Four = 4, Five = 5, Six = 6, Seven = 7, Eight = 8, Nine = 9 }, keycode.Name)
                                     -- if shift then
-                                    --     name = rawget({ "=", "!", '"', "#", "¤", "%", "&", "/", "(", ")" }, name + 1)
+                                    --     name = raw_get({ "=", "!", '"', "#", "¤", "%", "&", "/", "(", ")" }, name + 1)
                                     -- end
                                     text = text .. name
                                     updateTextBox()
@@ -2261,12 +2271,12 @@ local library library = {
                     end)
 
                     function self.new(type, typeOptions)
-                        assert(typeof(type) == "string", "expected string as #1 argument")
+                        assert_c(type_of(type) == "string", "expected string as #1 argument")
                         type = type:lower()
-                        assert(type ~= "folder", "illegal type")
+                        assert_c(type ~= "folder", "illegal type")
 
-                        local p = rawget(types, type)
-                        assert(p, "invalid type")
+                        local p = raw_get(types, type)
+                        assert_c(p, "invalid type")
                         local o = p(typeOptions)
                         o.type = type
                         o.self.Parent = self.self
@@ -2347,10 +2357,10 @@ local library library = {
 
                     local folderCache = { }
                     function self.new(type, typeOptions)
-                        assert(typeof(type) == "string", "expected string as #1 argument")
+                        assert_c(type_of(type) == "string", "expected string as #1 argument")
                         type = type:lower()
-                        local p = rawget(types, type)
-                        assert(p, "invalid type")
+                        local p = raw_get(types, type)
+                        assert_c(p, "invalid type")
                         local o = p(typeOptions)
                         table.insert(folderCache, o)
                         o.type = type
@@ -2399,11 +2409,11 @@ local library library = {
             end
 
             function self.new(type, typeOptions)
-                assert(typeof(type) == "string", "expected string as #1 argument")
+                assert_c(type_of(type) == "string", "expected string as #1 argument")
                 type = type:lower()
 
-                local p = rawget(types, type)
-                assert(p, "invalid type")
+                local p = raw_get(types, type)
+                assert_c(p, "invalid type")
                 local o = p(typeOptions)
                 o.type = type
 
@@ -2413,7 +2423,7 @@ local library library = {
 
                 return setmetatable(o, {
                     __index = function(self, idx)
-                        return rawget(rawget(self, "event"), idx)
+                        return raw_get(raw_get(self, "event"), idx)
                     end,
                     __newindex = function()end,
                 })
